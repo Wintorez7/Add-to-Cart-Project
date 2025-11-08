@@ -36,7 +36,7 @@ export default function CheckoutModal() {
 
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:3000/api/cart/checkout", {
+      const res = await fetch("https://add-to-cart-project.onrender.com/api/cart/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: "mohan123" }), // your current mock user

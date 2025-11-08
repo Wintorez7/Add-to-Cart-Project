@@ -20,7 +20,7 @@ const ProductPage = () => {
     if (!product && id) {
       const fetchProduct = async () => {
         try {
-          const res = await fetch(`http://localhost:3000/api/products/${id}`);
+          const res = await fetch(`https://add-to-cart-project.onrender.com/api/products/${id}`);
           const data = await res.json();
           setProduct(data);
         } catch (error) {
@@ -39,7 +39,7 @@ const ProductPage = () => {
   const handleAddToCart = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:3000/api/cart", {
+      const res = await fetch("https://add-to-cart-project.onrender.com/api/cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

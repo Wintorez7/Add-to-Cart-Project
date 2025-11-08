@@ -20,7 +20,7 @@ const ShoppingCartPage = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/cart?userId=${userId}`);
+        const res = await fetch(`https://add-to-cart-project.onrender.com/cart?userId=${userId}`);
         const data = await res.json();
         setCartItems(data || []);
       } catch (err) {
@@ -48,7 +48,7 @@ const ShoppingCartPage = () => {
   // ✅ Handle Remove Item
   const handleRemoveItem = async (id: string) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/cart/${id}`, { method: "DELETE" });
+      const res = await fetch(`https://add-to-cart-project.onrender.com/api/cart/${id}`, { method: "DELETE" });
       if (res.ok) {
         setCartItems((prev) => prev.filter((item) => item._id !== id));
         toast.success("Removed item from cart");
