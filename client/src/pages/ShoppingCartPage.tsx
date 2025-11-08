@@ -20,7 +20,7 @@ const ShoppingCartPage = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await fetch(`https://add-to-cart-project.onrender.com/cart?userId=${userId}`);
+        const res = await fetch(`https://add-to-cart-project.onrender.com/api/cart?userId=${userId}`);
         const data = await res.json();
         setCartItems(data || []);
       } catch (err) {
