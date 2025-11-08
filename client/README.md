@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
+🛒 Add-to-Cart Project — Full Stack E-Commerce Demo
 
-## Project info
+A simple full-stack shopping cart app built for the Vibe Commerce Internship Screening Assignment.
+It implements a React (Vite) frontend, Express.js backend, and MongoDB database.
+The app demonstrates full CRUD cart functionality with a responsive UI and mock checkout.
 
-**URL**: https://lovable.dev/projects/14c7358d-81a4-4013-b46c-5939f67f6f8a
+🚀 Live Demo
 
-## How can I edit this code?
+Frontend (Vercel): https://add-to-cart-project-sandy.vercel.app/
 
-There are several ways of editing your application.
+Backend (Render): https://add-to-cart-project.onrender.com
 
-**Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/14c7358d-81a4-4013-b46c-5939f67f6f8a) and start prompting.
+📦 Tech Stack
+Layer	Technology
+Frontend	React + Vite + TypeScript + TailwindCSS + ShadCN UI
+State & API	TanStack Query (React Query)
+Backend	Node.js + Express.js
+Database	MongoDB Atlas + Mongoose
+API Requests	Fetch API
+Deployment	Render (Backend), Vercel (Frontend)
 
-Changes made via Lovable will be committed automatically to this repo.
 
-**Use your preferred IDE**
+⚙️ Features Implemented
+✅ Backend (Express + MongoDB)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+GET /api/products → Fetch mock product list (from DummyJSON API or MongoDB)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+POST /api/cart → Add product to cart { userId, productId, quantity }
 
-Follow these steps:
+GET /api/cart?userId={id} → Get all cart items + total price
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+DELETE /api/cart/:id → Remove a specific item
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+POST /api/cart/checkout → Mock checkout → returns a receipt (total, timestamp)
 
-# Step 3: Install the necessary dependencies.
-npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+✅ Frontend (React + Vite)
+
+Products Grid: Displays products fetched from backend (pagination, sorting, filtering)
+
+Product Details Page: Click any product → navigate to /dashboard/product/:id
+
+Add to Cart: Adds selected product, updates quantity dynamically
+
+Cart Page: View cart, remove items, apply promo code, see subtotal & total
+
+Checkout Modal: Collects name, email, phone → shows success toast
+
+Responsive Dashboard Layout: Shared sidebar & header across all pages
+
+
+⚡ Local Setup
+1️⃣ Clone Repository
+git clone https://github.com/yourusername/Add-to-Cart-Project.git
+cd Add-to-Cart-Project
+
+2️⃣ Setup Backend
+cd backend
+npm install
+
+
+Create .env file inside /backend:
+
+MONGO_URI=your_mongodb_connection_string
+PORT=3000
+
+
+Start backend:
+
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+➡ Runs at: http://localhost:3000
 
-**Use GitHub Codespaces**
+3️⃣ Setup Frontend
+cd ../client
+npm install
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+Create .env inside /client:
 
-This project is built with:
+VITE_API_BASE_URL=http://localhost:3000
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
 
-## How can I deploy this project?
+Start frontend:
 
-Simply open [Lovable](https://lovable.dev/projects/14c7358d-81a4-4013-b46c-5939f67f6f8a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+npm run dev
